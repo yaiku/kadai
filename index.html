@@ -340,7 +340,42 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-    <script src="https://github.com/yaiku/kadai/blob/master/main.js"></script>
+    <script>
+        /* globals $ */
+$(function () {
+  $('.hamburger').on('click', function () {
+    $(this).next().slideToggle();
+  });
+});
+
+$(function () {
+  $('.slider').slick({
+    autoplay: true,
+    autoplaySpeed: 5000,
+  });
+});
+
+
+// accodion
+$('.q').on('click', function(){
+    $(this).next().slideToggle();
+    $(this).toggleClass("minus-btn");
+});
+
+//   fadein
+$(function () {
+  $(window).scroll(function () {
+    $(".fadein-before").each(function () {
+      var targetElement = $(this).offset().top;
+      var scroll = $(window).scrollTop();
+      var windowHeight = $(window).height();
+      if (scroll > targetElement - windowHeight + 150) {
+        $(this).addClass("fadein-after");
+      }
+    });
+  });
+});
+    </script>
 </body>
 
 </html>
